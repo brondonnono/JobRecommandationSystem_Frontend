@@ -1,0 +1,60 @@
+// Variable overrides
+:root {
+--blue: #20a8d8;
+--indigo: #6610f2;
+--purple: #6f42c1;
+--pink: #e83e8c;
+--red: #f86c6b;
+--orange: #f8cb00;
+--yellow: #ffc107;
+--green: #4dbd74;
+--teal: #20c997;
+--cyan: #17a2b8;
+--white: #fff;
+--gray: #73818f;
+--gray-dark: #2f353a;
+--light-blue: #63c2de;
+--primary: #20a8d8;
+--secondary: #c8ced3;
+--success: #4dbd74;
+--info: #63c2de;
+--warning: #ffc107;
+--danger: #f86c6b;
+--light: #f0f3f5;
+--dark: #2f353a;
+
+// vars
+$red:var(--red);
+$orange:var(--orange);
+$yellow:var(--yellow);
+$green:var(--green);
+$teal:var(--teal);
+$blue:var(--blue);
+$pink:var(--pink);
+$purple:var(--purple);
+$white:var(--white);
+$gray-600:var(--gray);
+$gray-900:var(--gray-dark);
+$dark:var(--dark);
+$light:var(--light);
+$info:var(--info);
+$colors: (
+  red: $red,
+  orange: $orange,
+  yellow: $yellow,
+  green: $green,
+  teal: $teal,
+  blue: $blue,
+  pink: $pink,
+  purple: $purple,
+  white: $white,
+  gray: $gray-600,
+  gray-dark: $gray-900,
+  dark: $dark,
+  light: $light
+) !default;
+
+.alpha { color: $purple; }
+// From the Sass map with our `color()` function
+.beta { color: color("purple"); }
+}

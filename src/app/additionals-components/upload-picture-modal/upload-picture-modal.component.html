@@ -1,0 +1,37 @@
+<div class="modal-header">
+    <h4 class="modal-title text-dark">Modifier votre photo de profil</h4>
+    <button type="button" class="close" aria-label="Close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="form" class="was-validated">
+      <div class="form-group gettime-form-wrapper">
+        <label class="form-col-form-label" for="budgetImg">Photo</label>
+        <div class="custom-file">
+          <input formControlName="budgetImg" (change)="selectFile($event)" type="file" class="custom-file-input"
+            id="validatedCustomFile" accept=".png, .jpg, .jpeg" required>
+          <label class="custom-file-label" for="validatedCustomFile">Choisir un fichier...</label>
+        </div>
+        <div class="gettime-hint text-xs">{{ uploadImageName }}</div>
+        <div *ngIf="budgetImage.url" class="px-1 py-2">
+          <img class="w-100" [src]="budgetImage.url">
+        </div>
+        <div class="invalid-feedback">
+          Veuillez selectionner une image!
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary btn-brand" (click)="close()">
+      <i class="fa fa-times"></i>
+      <span>Annuler</span>
+    </button>
+    <button type="button" class="btn btn-primary btn-brand" (click)="update()"
+      [disabled]="form.invalid || isLoading">
+      <i *ngIf="isLoading"><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></i>
+      <i *ngIf="!isLoading" class="fa fa-save"></i>
+      <span>Enregistrer</span>
+    </button>
+  </div>

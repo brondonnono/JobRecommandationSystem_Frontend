@@ -1,0 +1,89 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header bg-primary text-center elephant">
+          <b>
+            <h4 class="italic">
+              Recommandation
+            </h4>
+          </b>
+        </div>
+        <div class="card-body">
+          <div *ngIf="isLoading" class="row">
+            <div class="col-12 text-center">
+              <i class="fa fa-spin fa-spinner" style="font-size: 3rem; color: #20a8d8;"></i>
+            </div>
+          </div>
+          <div class="card" *ngIf="top_offers.length!= 0">
+            <div class="card-header elephant text-left">
+              <b>
+                <h4 class="italic">
+                  Meilleurs recommandations
+                </h4>
+              </b>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-4" *ngFor="let offer of top_offers">
+                  <div class="card special_card pointer">
+                    <div style="background: url('../assets/partners/19.png') no-repeat center;"
+                      class="card-header bg-white text-center">
+                    </div>
+                    <div class="card-body text-center">
+                      <span class="elephant">
+                        {{offer.posteVise}}
+                      </span>
+                      <div class="mt-2">
+                        <span style="color: #4dbd74; font-style: italic;">{{getOccurenceForOffer(offer.id,'top')?.nb}}
+                          profil(s) recommandé(s)</span>
+                      </div>
+                      <div class="mt-2">
+                        <button class="btn btn-primary btn-pill" (click)="seeMore(offer.id)">Voir plus</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card" *ngIf="bottom_offers.length!= 0">
+            <div class="card-header elephant text-left">
+              <b>
+                <h4 class="italic">
+                  Autres recommandations
+                </h4>
+              </b>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-4" *ngFor="let offer of bottom_offers">
+                  <div class="card special_card pointer">
+                    <div style="background: url('../assets/partners/19.png') no-repeat center;"
+                      class="card-header bg-white text-center">
+                    </div>
+                    <div class="card-body text-center">
+                      <span class="elephant">
+                        {{offer.posteVise}}
+                      </span>
+                      <div class="mt-2">
+                        <span
+                          style="color: #4dbd74; font-style: italic;">{{getOccurenceForOffer(offer.id,'bottom')?.nb}}
+                          profil(s) recommandé(s)</span>
+                      </div>
+                      <div class="mt-2">
+                        <button class="btn btn-primary btn-pill" (click)="seeMore(offer.id)">Voir plus</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+  </div>
+  <!--/.row-->
+</div>

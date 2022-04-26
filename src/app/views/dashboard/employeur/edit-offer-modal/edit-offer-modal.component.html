@@ -1,0 +1,101 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header bg-primary">
+                    <h4 class="elephant">Modifier une offre</h4>
+                </div>
+                <div class="card-body border_show" style="background-color: #e4e5e6;">
+                    <form [formGroup]="form" class="was-validated">
+                        <div class="row">
+                            <div class="form-group col-md-6 col-lg-4">
+                                <label for="nom">Libellé:</label>
+                                <input formControlName="libelle" placeholder="Recherche d'un WebMaster" [(ngModel)]="credentials.libelle" required class="form-control" id="nom">
+                                <div class="invalid-feedback">
+                                    Veuillez saisir le libellé de l'offre!
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6 col-lg-4">
+                                <label for="poste">Poste:</label>
+                                <input formControlName="posteVise" type="text" placeholder="WebMaster"
+                                    [(ngModel)]="credentials.posteVise" class="form-control" id="poste" required>
+                                <div class="invalid-feedback">
+                                    Veuillez saisir le poste!
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6 col-lg-4">
+                                <label for="dateExp">Date Expiration:</label>
+                                <input formControlName="dateExpiration" type="date" [(ngModel)]="credentials.dateExpiration" class="form-control" id="dateExp" required>
+                                <div class="invalid-feedback">
+                                    Veuillez saisir la date d'expiration de l'offre!
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6 col-lg-12">
+                                <label for="description">Description: </label>
+                                <textarea formControlName="description" required [(ngModel)]="credentials.description" placeholder="Description"
+                                    type="text" class="form-control" id="description">
+                                </textarea>
+                                <div class="invalid-feedback">
+                                    Veuillez saisir la description de l'offre!
+                                </div>
+                            </div>
+                            <div class="form-group col-md-8 col-lg-8">
+                                <div class="form-group row">
+                                    <div class="form-group col-md-8 col-lg-9">
+                                        <label for="competenceTxt">Ajouter une compétence</label>
+                                        <input formControlName="competence" [(ngModel)]="input_competence"
+                                            type="text" class="form-control" id="competenceTxt">
+                                    </div>
+                                    <div class="mt-4 form-group col-md-3 col-lg-3" style="padding-top: 6px;">
+                                        <button class="btn btn-success btn-brand" (click)="addCompetence()"
+                                            [disabled]="isAdding || isLoading || !input_competence.trim()">
+                                            <span *ngIf="isAdding" class="spinner-border spinner-border-sm" role="status"
+                                                aria-hidden="true"></span>
+                                            <i *ngIf="!isAdding" class="fa fa-plus"></i>
+                                            <span>Ajouter</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4 col-lg-4">
+                                <label for="typeOffre">type d'offre: </label>
+                                <select (keyup.enter)="update()" required id="seclectSexe" formControlName="typeOffre" [(ngModel)]="credentials.typeOffre"
+                                    name="typeOffre" class="text-center px-1 form-control">
+                                    <option value="temps plein">Temps plein</option>
+                                    <option value="temps partiel">Temps partiel</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Veuillez sélectionner le type d'offre!
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12 col-lg-12" *ngIf="competences.length != 0">
+                                <div class="form-group row">
+                                    <div class="form-group col-md-12 col-lg-12">
+                                        <label class="mr-4">Compétences Requises: </label>
+                                        <div class="contentBadge">
+                                            <app-badge (click)="openConfirmButtonModal(position(item.id))" [title]="item.label"
+                                                *ngFor="let item of competences"></app-badge>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer bg-info">
+                    <div class="row">
+                        <div class="col-12 text-right">
+                            <button type="button" class="btn btn-success btn-brand" (click)="update()"
+                                [disabled]="form.invalid || isLoading">
+                                <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status"
+                                    aria-hidden="true"></span>
+                                <i *ngIf="!isLoading" class="fa fa-save"></i>
+                                <span>Enregistrer</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

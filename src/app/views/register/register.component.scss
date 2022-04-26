@@ -1,0 +1,92 @@
+.img_box {
+    text-align: center;
+    img {
+        margin-bottom: 10px;
+        width: 100px;
+    }
+}
+
+.icon_box {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.mail_icon {
+    height: 20px;
+    margin-right: 10px;
+}
+
+.user_icon {
+    height: 30px;
+    margin-right: 15px;
+}
+
+.lock_icon {
+    height: 35px;
+    margin-right: 15px;
+    margin-left: 2px;
+}
+
+.box_input {
+    border-top-left-radius: 50px !important;
+    border-bottom-left-radius: 50px !important;
+    border-radius: 50px;
+}
+
+.btn_lg {
+    text-transform: uppercase;
+    font-family: Elephant;
+    color: white;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.cursor:hover {
+    background-color: #378b55;
+}
+
+.border_login {
+    border-top-left-radius: 20px !important;
+    border-bottom-left-radius: 20px !important;
+    background-color: #FAFAFC;
+}
+
+.border_card {
+    border-top-right-radius: 20px !important;
+    border-bottom-right-radius: 20px !important;
+}
+
+.card_shadow {
+    box-shadow: 3px 3px 9px;
+}
+
+.brd_rad_20 {
+    border-radius: 20px !important;
+}
+
+.logo {
+    width: 90%;
+}
+
+.bg_img {
+    width: 100%;
+}
+
+.text {
+    h4 {
+        font-style: italic;
+        font-family: 'Times New Roman';
+        font-weight: 500;
+    }
+}
+
+.text_font {
+    text-transform: uppercase;
+    font-family: Elephant;
+}
+
+select {
+    width: 111%;
+}

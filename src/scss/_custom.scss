@@ -1,0 +1,113 @@
+// Here you can add other styles
+.elephant {
+    font-family: Elephant;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.action_menu {
+    li > span.dropdown-item:hover {
+        cursor: pointer;
+        background-color: #f0f3f5;
+        color: black;
+        i {
+            color: white;
+        }
+    }
+}
+
+.border_show {
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+}
+
+.box_show {
+    box-shadow: 3px 3px 9px black;
+}
+
+.special_card {
+    border-radius: 30px;
+    .card-header {
+        height: 140px;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+    }
+    .card-footer {
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+    }
+    box-shadow: 3px 3px 3px $gray-600;
+}
+
+
+// sidebar background color
+
+// .sidebar .nav {
+//     background-color: $light;
+// }
+
+// .sidebar .nav-link {
+//     color: $blue;
+// }
+
+// .sidebar .nav-link.active {
+//     background-color: $white;
+// }
+
+// pagination style
+
+.page-number.current{
+    background: #ffffff!important;
+    border: 2px solid $info;
+    color: $dark !important;
+}
+
+
+.custom-pagination .page-number {
+    display: inline-block;
+    // padding: 5px 12px;
+    background: $blue;
+    color: $white;
+    margin: 0px 4px;
+    border-radius: 25px;
+}
+
+.page-number span {
+    display: block;
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.pagination-previous,.pagination-next {
+    display: inline-block;
+    font-weight: bold;
+}
+
+.bg_white {
+    background-color: white !important;
+}
+
+.modal-footer {
+    justify-content: space-between !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.contentBadge {
+    border-radius: 5px;
+    background-color: white;
+    width: auto;
+    padding: 10px;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

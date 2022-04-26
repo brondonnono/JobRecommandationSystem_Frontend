@@ -1,0 +1,40 @@
+<div class="modal-header">
+    <h4 class="modal-title text-light">EDITER</h4>
+    <button type="button" class="close" aria-label="Close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form class="was-validated">
+      <div class="form-row">
+  
+        <div class="form-group col-md-12">
+          <label class="form-col-form-label" for="user_email">Nombre d'année d'expériences: </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+            </div>
+            <input [(ngModel)]="value" type="number" name="itemValue" class="form-control" id="itemValue" min="1" max="40" required>
+            <div class="invalid-feedback">
+              Veuillez saisir le nombre d'années d'expériences pour cette compétence
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger btn-brand" (click)="close()">
+      <i class="fa fa-times"></i>
+      <span>Annuler</span>
+    </button>
+    <button
+      type="button"
+      class="btn btn-success btn-brand"
+      (click)="save()"
+      [disabled]="!value || isLoading">
+      <i *ngIf="isLoading"><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></i>
+      <i *ngIf="!isLoading" class="fa fa-save"></i>
+      <span>Envoyer</span>
+    </button>
+  </div>
+  

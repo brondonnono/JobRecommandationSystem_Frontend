@@ -1,0 +1,346 @@
+<div class="card" *ngIf="!isEditing" style="background-color: #eee;">
+    <div class="card-content">
+        <section style="background-color: #eee;">
+            <div class="container py-3">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card mb-4">
+                            <div class="card-body text-center">
+                                <img [src]="budgetImage.url" alt="avatar" class="rounded-circle img-fluid"
+                                    style="width: 140px;">
+                                <div class="d-flex justify-content-center my-2">
+                                    <input id="file" type="file" (change)="selectFile($event)" class="btn btn-primary" [hidden]="true">
+                                    <label class="btn btn-brand btn-primary" (click)="openUploadPictureModal()">
+                                        <i class="cil-image-plus"></i>
+                                        <span>Modifier la photo</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4 mb-lg-0">
+                            <div class="card-header bg-info">
+                                <span class="italic" style="font-size: 1rem;">Profil social</span>
+                            </div>
+                            <div class="card-body p-0">
+                                <ul class="list-group list-group-flush rounded-3">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                        <i class="fa fa-github fa-lg" style="color: #333333;"></i>
+                                        <p class="mb-0">mdbootstrap</p>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                        <i class="fa fa-linkedin-square fa-lg" style="color: #55acee;"></i>
+                                        <p class="mb-0">@mdbootstrap</p>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                        <i class="fa fa-medium fa-lg" style="color: #ac2bac;"></i>
+                                        <p class="mb-0">mdbootstrap</p>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                        <i class="fa fa-facebook-f fa-lg" style="color: #3b5998;"></i>
+                                        <p class="mb-0">mdbootstrap</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="card mb-4">
+                            <div class="card-header bg-info">
+                                <span class="italic" style="font-size: 1rem;">Informations Personnelles</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Nom complet</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">{{credentials.nom}}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Adresse mail</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">{{credentials.email}}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Numéro de téléphone</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">(097) 234-5678</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Ville de Résidence</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">{{credentials.villeResidence}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card mb-4 mb-md-0">
+                                    <div class="card-header bg-info">
+                                        <span class="italic" style="font-size: 1rem;">Compétences</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="mb-1" style="font-size: .77rem;">Web Design</p>
+                                        <div class="progress rounded" style="height: 5px;">
+                                            <div class="progress-bar" role="progressbar" style="width: 80%"
+                                                aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <p class="mt-4 mb-1" style="font-size: .77rem;">Website Markup</p>
+                                        <div class="progress rounded" style="height: 5px;">
+                                            <div class="progress-bar" role="progressbar" style="width: 72%"
+                                                aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <p class="mt-4 mb-1" style="font-size: .77rem;">One Page</p>
+                                        <div class="progress rounded" style="height: 5px;">
+                                            <div class="progress-bar" role="progressbar" style="width: 89%"
+                                                aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <p class="mt-4 mb-1" style="font-size: .77rem;">Mobile Template</p>
+                                        <div class="progress rounded" style="height: 5px;">
+                                            <div class="progress-bar" role="progressbar" style="width: 55%"
+                                                aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <p class="mt-4 mb-1" style="font-size: .77rem;">Backend API</p>
+                                        <div class="progress rounded mb-2" style="height: 5px;">
+                                            <div class="progress-bar" role="progressbar" style="width: 66%"
+                                                aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="col-md-6">
+                                <div class="card mb-4 mb-md-0">
+                                    <div class="card-body">
+                                        <p class="mb-4"><span class="text-primary font-italic me-1">assigment</span>
+                                            Project Status</p>
+                                        <p class="mb-1" style="font-size: .77rem;">Web Design</p>
+                                        <div class="progress rounded" style="height: 5px;">
+                                            <div class="progress-bar" role="progressbar" style="width: 80%"
+                                                aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <p class="mt-4 mb-1" style="font-size: .77rem;">Website Markup</p>
+                                        <div class="progress rounded" style="height: 5px;">
+                                            <div class="progress-bar" role="progressbar" style="width: 72%"
+                                                aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <p class="mt-4 mb-1" style="font-size: .77rem;">One Page</p>
+                                        <div class="progress rounded" style="height: 5px;">
+                                            <div class="progress-bar" role="progressbar" style="width: 89%"
+                                                aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <p class="mt-4 mb-1" style="font-size: .77rem;">Mobile Template</p>
+                                        <div class="progress rounded" style="height: 5px;">
+                                            <div class="progress-bar" role="progressbar" style="width: 55%"
+                                                aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <p class="mt-4 mb-1" style="font-size: .77rem;">Backend API</p>
+                                        <div class="progress rounded mb-2" style="height: 5px;">
+                                            <div class="progress-bar" role="progressbar" style="width: 66%"
+                                                aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="card-footer bg-info">
+        <div class="row">
+            <div class="col-12 text-right">
+                <button type="button" class="btn btn-success btn-brand" (click)="show(true)">
+                    <i class="fa fa-edit"></i>
+                    <span>Modifier</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <tabset *ngIf="isEditing">
+    <tab>
+        <ng-template tabHeading><i class="cil-user"></i> Informations Personnelles </ng-template>
+        <form [formGroup]="form" class="was-validated">
+            <div class="row">
+                <div class="form-group col-md-6 col-lg-4">
+                    <label for="nom">Nom:</label>
+                    <input formControlName="nom" [pattern]="textPattern" [(ngModel)]="credentials.nom" required
+                        class="form-control" id="nom">
+                </div>
+                <div class="form-group col-md-6 col-lg-4">
+                    <label for="seclectSexe">Sexe: </label>
+                    <select (keyup.enter)="update()" id="seclectSexe" formControlName="sexe"
+                        [(ngModel)]="credentials.sexe" name="sexe" class="text-center px-1 form-control">
+                        <option value="0" disabled>Indiquez votre sexe</option>
+                        <option value="M">Homme</option>
+                        <option value="F">Femme</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6 col-lg-4">
+                    <label for="amount">Ville de résidence:</label>
+                    <input formControlName="ville" type="text" [pattern]="textPattern"
+                        [(ngModel)]="credentials.villeResidence" class="form-control" id="amount" required>
+                    <div class="invalid-feedback">
+                        Le nom de la ville ne doit contenir que des lettres!
+                    </div>
+                </div>
+            </div>
+        </form>
+    </tab>
+    <tab>
+        <ng-template tabHeading><i class="cil-laptop"></i> Informations Professionnelles </ng-template>
+        <form [formGroup]="form" class="was-validated">
+            <div class="row">
+                <div class="form-group col-md-12 col-lg-12">
+                    <label for="formations">Formations: </label>
+                    <input formControlName="formation" [(ngModel)]="selectedFormation"
+                        placeholder="BAC C ; LICENCE INFORMATIQUE ; MASTER GENIE LOCIEL" type="text"
+                        class="form-control" id="formations">
+                </div>
+                <div class="form-group col-md-12 col-lg-12">
+                    <div class="form-group row">
+                        <div class="form-group col-md-12 col-lg-12">
+                            <label class="mr-4">Compétences: </label>
+                            <div class="contentBadge">
+                                <app-badge (click)="openConfirmButtonModal(position(item.id))" [title]="item.label"
+                                    *ngFor="let item of competences"></app-badge>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-12 col-lg-12">
+                    <div class="form-group row">
+                        <div class="form-group col-md-8 col-lg-10">
+                            <label for="competenceTxt">Autre compétence:</label>
+                            <input formControlName="competence" [pattern]="competencePattern"
+                                [(ngModel)]="input_competence" type="text" class="form-control" id="competenceTxt">
+                        </div>
+                        <div class="mt-4 form-group col-md-4 col-lg-2" style="padding-top: 6px;">
+                            <button class="btn btn-success btn-brand" (click)="addCompetence()"
+                                [disabled]="isAdding || isLoading || !input_competence.trim()">
+                                <span *ngIf="isAdding" class="spinner-border spinner-border-sm" role="status"
+                                    aria-hidden="true"></span>
+                                <i *ngIf="!isAdding" class="fa fa-plus"></i>
+                                <span>Ajouter</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 text-right">
+                    <button type="button" class="btn btn-success btn-brand" (click)="send()"
+                        [disabled]="form.invalid || isLoading">
+                        <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status"
+                            aria-hidden="true"></span>
+                        <i *ngIf="!isLoading" class="fa fa-save"></i>
+                        <span>Enregistrer</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </tab>
+</tabset> -->
+
+
+<div class="card" *ngIf="isEditing">
+    <div class="card-header bg-primary">
+        <h4 class="elephant">Modifier mon profil</h4>
+    </div>
+    <div class="card-body border_show">
+        <form [formGroup]="form" class="was-validated">
+            <div class="row">
+                <div class="form-group col-md-6 col-lg-4">
+                    <label for="nom">Nom:</label>
+                    <input formControlName="nom" [(ngModel)]="credentials.nom" required
+                        class="form-control" id="nom">
+                </div>
+                <div class="form-group col-md-6 col-lg-4">
+                    <label for="seclectSexe">Sexe: </label>
+                    <select (keyup.enter)="update()" id="seclectSexe" formControlName="sexe"
+                        [(ngModel)]="credentials.sexe" name="sexe" class="text-center px-1 form-control">
+                        <option value="0" disabled>Indiquez votre sexe</option>
+                        <option value="M">Homme</option>
+                        <option value="F">Femme</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6 col-lg-4">
+                    <label for="amount">Ville de résidence:</label>
+                    <input formControlName="ville" type="text" [pattern]="textPattern"
+                        [(ngModel)]="credentials.villeResidence" class="form-control" id="amount" required>
+                    <div class="invalid-feedback">
+                        Le nom de la ville ne doit contenir que des lettres!
+                    </div>
+                </div>
+                <div class="form-group col-md-6 col-lg-6">
+                    <label for="formations">Formations: </label>
+                    <input formControlName="formation" [(ngModel)]="selectedFormation"
+                        placeholder="BAC C ; LICENCE INFORMATIQUE ; MASTER GENIE LOCIEL" type="text"
+                        class="form-control" id="formations">
+                </div>
+                <div class="form-group col-md-12 col-lg-12">
+                    <div class="form-group row">
+                        <div class="form-group col-md-12 col-lg-12">
+                            <label class="mr-4">Compétences: </label>
+                            <div class="contentBadge">
+                                <app-badge (click)="openConfirmButtonModal(position(item.id))" [title]="item.label"
+                                    *ngFor="let item of competences"></app-badge>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-12 col-lg-12">
+                    <div class="form-group row">
+                        <div class="form-group col-md-4 col-lg-4">
+                            <label for="competenceTxt">Autre compétence:</label>
+                            <input formControlName="competence"
+                                [(ngModel)]="input_competence" type="text" class="form-control" id="competenceTxt">
+                        </div>
+                        <div class="mt-4 form-group col-md-3 col-lg-3" style="padding-top: 6px;">
+                            <button class="btn btn-success btn-brand" (click)="addCompetence()"
+                                [disabled]="isAdding || isLoading || !input_competence.trim()">
+                                <span *ngIf="isAdding" class="spinner-border spinner-border-sm" role="status"
+                                    aria-hidden="true"></span>
+                                <i *ngIf="!isAdding" class="fa fa-plus"></i>
+                                <span>Ajouter</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer bg-info">
+        <div class="row">
+            <div class="col-6 text-left">
+                <button type="button" class="btn btn-danger btn-brand" (click)="show(false)"
+                    [disabled]="isLoading">
+                    <i class="fa fa-close"></i>
+                    <span>Annuler</span>
+                </button>
+            </div>
+            <div class="col-6 text-right">
+                <button type="button" class="btn btn-success btn-brand" (click)="send()"
+                    [disabled]="form.invalid || isLoading">
+                    <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status"
+                        aria-hidden="true"></span>
+                    <i *ngIf="!isLoading" class="fa fa-save"></i>
+                    <span>Enregistrer</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

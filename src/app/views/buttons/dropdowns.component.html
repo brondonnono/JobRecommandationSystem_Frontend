@@ -1,0 +1,199 @@
+<div class="animated fadeIn">
+  <div class="card">
+    <div class="card-header elephant bg-primary">
+      <h4 class="italic">
+        <u>Détails de l'offre</u> :
+        <span>
+          {{offer.libelle}}
+        </span>
+      </h4>
+    </div>
+    <div class="card-body">
+      <h3>
+        <u>Poste proposé</u> :
+        <span>
+          <strong>
+            {{offer.posteVise}}
+          </strong>
+        </span>
+      </h3>
+      <br />
+      <h3 class="italic">
+        <u>Missions</u> :
+      </h3>
+      <ul>
+        <li *ngFor="let mission of offer.missions">
+          {{mission}}
+        </li>
+      </ul>
+      <h3>
+        <u>Profil recherché pour le poste</u> :
+      </h3>
+      <ul>
+        <li *ngFor="let profil of offer.profil_recherche">
+          {{profil}}
+        </li>
+      </ul>
+      <h3>
+        <u>Critères de l'annonce pour le poste</u> :
+        <span>
+          <strong>
+            {{offer.posteVise}}
+          </strong>
+        </span>
+      </h3>
+      <h3>
+        <strong>
+          <u>Métier</u> :
+        </strong>
+        <span>
+          {{offer.metier}}
+        </span>
+      </h3>
+      <h3>
+        <strong>
+          <u>Secteur d´activité</u> :
+        </strong>
+        <span>
+          {{offer.secteur_activite}}
+        </span>
+      </h3>
+      <h3>
+        <strong>
+          <u>Type de contrat</u> :
+        </strong>
+        <span>
+          {{offer.type_contrat}}
+        </span>
+      </h3>
+      <h3>
+        <strong>
+          <u>Ville</u> :
+        </strong>
+        <span>
+          {{offer.ville}}
+        </span>
+      </h3>
+      <h3>
+        <strong>
+          <u>Niveau d'expérience</u> :
+        </strong>
+        <span *ngIf='res.type == "interval"'>
+          Expérience entre {{res.value[0]}} et {{res.value[1]}} ans
+        </span>
+        <span *ngIf='res.type == "single"'>
+          Expérience de {{res.value[0]}} ans
+        </span>
+      </h3>
+      <h3>
+        <strong>
+          <u>Niveau d'études</u> :
+        </strong>
+        <span>
+          {{offer.formations}}
+        </span>
+      </h3>
+      <h3>
+        <strong>
+          <u>Langues exigés</u> :
+        </strong>
+      </h3>
+      <ul>
+        <li *ngFor="let langue of offer.langues">
+          <h5>
+            {{langue.libelle}} > {{langue.niveau}}
+          </h5>
+        </li>
+      </ul>
+      <h3>
+        <strong>
+          <u>Nombre de poste(s)</u> :
+        </strong>
+        <span>
+          {{offer.nbrePoste}}
+        </span>
+      </h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header bg-primary elephant">
+          <b>
+            <h4 class="italic">
+              Candidatures recommandées
+            </h4>
+          </b>
+        </div>
+        <div class="card-body">
+          <table #table class="table table-responsive-sm table-hover table-outline mb-0">
+            <thead class="thead-light">
+              <tr>
+                <th class="text-center">
+                  <i class="icon-people"></i>
+                </th>
+                <th>Candidats</th>
+                <th>Pourcentage de compatibilité</th>
+                <th class="text-center">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let candidate of tableData">
+                <td class="text-center">
+                  <div class="avatar">
+                    <img src="assets/img/avatars/profil.png" class="img-avatar" alt="user_avatar">
+                    <span class="avatar-status badge-success"></span>
+                  </div>
+                </td>
+                <td>
+                  <div>{{candidate.username}}</div>
+                </td>
+                <td>
+                  <div class="clearfix">
+                    <div class="float-left">
+                      <strong>{{candidate.stat.rate}}%</strong>
+                    </div>
+                    <div class="float-right" *ngIf="candidate">
+                      <small class="text-muted">{{offer.competencesRequises.length}}</small>
+                    </div>
+                  </div>
+                  <div class="progress progress-xs">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </td>
+                <td class="text-center">
+                  <div class="btn-group" dropdown>
+                    <button dropdownToggle tooltip="Actions" type="button" class="btn btn-primary dropdown-toggle">
+                      <i class="fa fa-cog"></i>
+                      <span class="caret"></span>
+                    </button>
+                    <ul *dropdownMenu class="dropdown-menu action_menu" role="menu">
+                      <li role="button" (click)="consulterProfil()">
+                        <span class="dropdown-item">
+                          <i class="fa fa-eye" style="color: #20a8d8;"></i>
+                          Consulter</span>
+                      </li>
+                      <li role="button" (click)="validerCandidature()">
+                        <span class="dropdown-item">
+                          <i class="fa fa-check-square-o" style="color: #4dbd74;"></i>
+                          Valider
+                        </span>
+                      </li>
+                      <li role="button" (click)="supprimerCandidature()">
+                        <span class="dropdown-item">
+                          <i class="fa fa-trash" style="color: #f86c6b;"></i>
+                          Supprimer
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

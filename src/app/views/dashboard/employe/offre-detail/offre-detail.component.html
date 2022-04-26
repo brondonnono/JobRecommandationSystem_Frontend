@@ -1,0 +1,157 @@
+<div class="animated fadeIn">
+    <button class="btn btn-light btn-brand mb-1" routerLink="/employe/offers">
+        <i class="cil-chevron-double-left"></i>
+        <span>Retour</span>
+    </button>
+    <div class="card" *ngIf="!isError && currentOffer == null">
+        <span class="text-center">
+            <i class="fa fa-spin fa-spinner" style="font-size: 3rem; color: #20a8d8;"></i>
+        </span>
+    </div>
+    <div class="card" *ngIf="!isError && currentOffer != null">
+        <div class="card-header elephant bg-primary">
+            <h4 class="italic">
+                <u>Détails de l'offre</u> :
+                <span>
+                    {{currentOffer.libelle}}
+                </span>
+            </h4>
+        </div>
+        <div class="card-body">
+            <h3>
+                <u>Poste proposé</u> :
+                <h4>
+                    <strong>
+                        {{currentOffer.posteVise}}
+                    </strong>
+                </h4>
+            </h3>
+            <br />
+            <h3 class="italic">
+                <u>Missions</u> :
+            </h3>
+            <ul *ngIf="currentOffer.missions">
+                <li *ngFor="let mission of currentOffer.missions">
+                    {{mission}}
+                </li>
+            </ul>
+            <h3>
+                <u>Profil recherché pour le poste</u> :
+            </h3>
+            <ul *ngIf="currentOffer.profil_recherche">
+                <li *ngFor="let profil of currentOffer.profil_recherche">
+                    {{profil}}
+                </li>
+            </ul>
+            <h3>
+                <u>Critères de l'annonce pour le poste</u> :
+                <span>
+                    <strong>
+                        {{currentOffer.posteVise}}
+                    </strong>
+                </span>
+            </h3>
+            <h3 *ngIf="currentOffer.metier">
+                <strong>
+                    <u>Métier</u> :
+                </strong>
+                <span>
+                    {{currentOffer.metier}}
+                </span>
+            </h3>
+            <h3 *ngIf="currentOffer.secteur_activite">
+                <strong>
+                    <u>Secteur d´activité</u> :
+                </strong>
+                <span>
+                    {{currentOffer.secteur_activite}}
+                </span>
+            </h3>
+            <h3 *ngIf="currentOffer.type_contrat">
+                <strong>
+                    <u>Type de contrat</u> :
+                </strong>
+                <span>
+                    {{currentOffer.type_contrat}}
+                </span>
+            </h3>
+            <h3 *ngIf="currentOffer.ville">
+                <strong>
+                    <u>Ville</u> :
+                </strong>
+                <span>
+                    {{currentOffer.ville}}
+                </span>
+            </h3>
+            <h3 *ngIf="currentOffer.experience">
+                <strong>
+                    <u>Niveau d'expérience</u> :
+                </strong>
+                <span *ngIf='res.type == "interval"'>
+                    Expérience entre {{res.value[0]}} et {{res.value[1]}} ans
+                </span>
+                <span *ngIf='res.type == "single"'>
+                    Expérience de {{res.value[0]}} ans
+                </span>
+            </h3>
+            <h3 *ngIf="currentOffer.formations">
+                <strong>
+                    <u>Niveau d'études</u> :
+                </strong>
+                <span>
+                    {{currentOffer.formations}}
+                </span>
+            </h3>
+            <h3 *ngIf="currentOffer.langues">
+                <strong>
+                    <u>Langues exigés</u> :
+                </strong>
+            </h3>
+            <ul *ngIf="currentOffer.langues">
+                <li *ngFor="let langue of currentOffer.langues">
+                    <h5>
+                        {{langue.libelle}} > {{langue.niveau}}
+                    </h5>
+                </li>
+            </ul>
+            <h3 *ngIf="currentOffer.nbrePoste">
+                <strong>
+                    <u>Nombre de poste(s)</u> :
+                </strong>
+                <span>
+                    {{currentOffer.nbrePoste}}
+                </span>
+            </h3>
+            <h3 *ngIf="currentOffer.dateExpiration">
+                <strong>
+                    <u>Delai d'expiration de l'offre</u> :
+                </strong>
+                <span>
+                    {{currentOffer.dateExpiration}}
+                </span>
+            </h3>
+        </div>
+        <div class="card-footer">
+            <div class="row">
+                <div class="col-md-8 col-lg-6 text-left">
+                    <button class="btn btn-danger btn-brand" (click)="reject()"
+                        [disabled]="isDeleting || isSending || isLoading">
+                        <span *ngIf="isDeleting" class="spinner-border spinner-border-sm" role="status"
+                            aria-hidden="true"></span>
+                        <i *ngIf="!isDeleting" class="fa fa-trash"></i>
+                        <span>Rejeter</span>
+                    </button>
+                </div>
+                <div class="col-md-4 col-lg-6 text-right">
+                    <button class="btn btn-success btn-brand" (click)="sendCandidature()"
+                        [disabled]="isLoading || isSending || isDeleting">
+                        <span *ngIf="isSending" class="spinner-border spinner-border-sm" role="status"
+                            aria-hidden="true"></span>
+                        <i *ngIf="!isSending" class="fa fa-send"></i>
+                        <span>Postuler</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
